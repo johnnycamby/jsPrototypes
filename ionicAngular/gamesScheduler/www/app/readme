@@ -1,0 +1,33 @@
+
+Ionic
+opensource , mobile-optimized library for building apps with html,js,css
+built on top of angularjs
+built specifically for Cordova apps to make use of native device features
+
+Cordova
+javascript api that wraps native apis E.g camera, scanner
+
+============== installations ================
+npm install ionic -g
+npm install cordova -g
+
+========== create an app ===============
+ionic start scheduler blank
+
+
+========= start the app ================
+ionic serve
+
+======== add dev platform =============
+ionic platform add android
+
+=====  (For running say customed query to extract local data from say db) ==========================
+bower install lodash --save-dev
+
+===== Angular Cache () ==========================
+bower install angular-cache --save-dev
+
+===== angular for google maps (http://angular-ui.github.io/angular-google-maps/#!/api) ===========
+bower install angular-google-maps --save-dev
+
+

@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <title>Index Page ::-</title>
+
+    <!-- vendorInject:css -->
+    <link rel="stylesheet" href="vendor/angular-toastr.css">
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- endinject -->
+</head>
+
+<body ng-controller="loginCtrl as vm">
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <button ng-show="vm.isAuthenticated()" class="btn btn-default navbar-btn btn-sm" ui-sref="posts">Client Posts</button>
+        <button ng-show="vm.isAuthenticated()" class="btn btn-primary navbar-btn btn-sm" ui-sref="post">New Post</button>
+        <button ng-show="vm.isAuthenticated()" class="btn btn-success navbar-btn pull-right" ng-click="vm.logout()">Logout</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div ng-hide="vm.isAuthenticated()" class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
+        <div class="jumbotron">
+            <img height=200 width=200 src="https://g.twimg.com/Twitter_logo_blue.png" class="img-responsive" alt="Responsive image">
+            <h1>make post!</h1>
+            <p>.. or two.</p>
+            <button  class="btn btn-primary btn-lg" ng-click="vm.login()">Login</button>
+        </div>
+    </div>
+
+    <div ng-if="vm.isAuthenticated()" ui-view></div>
+</div>
+
+<!-- vendorInject:js -->
+<script src="vendor/angular.js"></script>
+<script src="vendor/satellizer.js"></script>
+<script src="vendor/jquery.js"></script>
+<script src="vendor/ui-bootstrap-tpls.js"></script>
+<script src="vendor/angular-ui-router.js"></script>
+<script src="vendor/toaster.js"></script>
+<script src="vendor/angular-toastr.tpls.js"></script>
+<script src="vendor/angular-animate.js"></script>
+<script src="vendor/bootstrap.js"></script>
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="app.js"></script>
+<script src="clientPostsCtrl.js"></script>
+<script src="loginCtrl.js"></script>
+<script src="postCtrl.js"></script>
+<!-- endinject -->
+
+</body>
+</html>

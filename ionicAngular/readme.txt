@@ -1,0 +1,2 @@
+
+ionic start ionicTabsApp tabs

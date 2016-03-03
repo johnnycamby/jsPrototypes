@@ -1,0 +1,255 @@
+﻿
+
+// var userFixtures =
+//[
+//    {
+//        id: "2467fbf0-3015-4ba4-90fc-00021d04f0b4",
+//        userName: "sonmez",
+//        email: "john.sonmez@gmail.com",
+//        firstname: "John",
+//        lastname: "Sonmez",
+//        bio: "Author at Pluralsight",
+//        twitter: "johnsonmez",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2011-01-03T00:00:00"
+//    },
+//    {
+//        id: "2d07d0b7-86bd-46b1-89ab-0e71f0b6f122",
+//        userName: "shiftkey",
+//        email: "brendan.forster@github.com",
+//        firstname: "Brendan",
+//        lastname: "Forster",
+//        bio: "Developer at Github",
+//        twitter: "shiftkey",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2011-01-03T00:00:00"
+//    },
+//    {
+//        id: "31462198-c174-4ccc-8338-f18abd02de08",
+//        userName: "xplicit45@gmail.com",
+//        email: "xplicit45@gmail.com",
+//        firstname: null,
+//        lastname: null,
+//        bio: null,
+//        twitter: null,
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2015-08-28T14:27:08.937"
+//    },
+//    {
+//        id: "3a2f0df2-ca9d-49a3-bbc9-304bb82079a3",
+//        userName: "robconery",
+//        email: "robconery@gmail.com",
+//        firstname: "Rob",
+//        lastname: "Conery",
+//        bio: "CTO of Little Debbie Snackcakes",
+//        twitter: "robconery",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2001-04-12T00:00:00"
+//    },
+//    {
+//        id: "3f709e03-aa25-40f9-a49d-fd252c6fc0c7",
+//        userName: "jongalloway",
+//        email: "jongalloway@gmail.com",
+//        firstname: "Jon",
+//        lastname: "Galloway",
+//        bio: "Dance Instructor",
+//        twitter: "jongalloway",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2001-01-01T00:00:00"
+//    },
+//    {
+//        id: "49bbf69b-97e1-4712-99d5-43b59dfb5fdd",
+//        userName: "haacked",
+//        email: "haacked@gmail.com",
+//        firstname: "Phil",
+//        lastname: "Haack",
+//        bio: "Developer at Github",
+//        twitter: "haacked",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2006-07-03T00:00:00"
+//    },
+//    {
+//        id: "4a294b48-6806-48ee-9a55-84caa0dfb0ee",
+//        userName: "topfunky",
+//        email: "boss@topfunky.com",
+//        firstname: "Geoffrey",
+//        lastname: "Grosenbach",
+//        bio: "VP of Stuff at Pluralsight",
+//        twitter: "topfunky",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2009-09-15T00:00:00"
+//    },
+//    {
+//        id: "4d54557f-9bfc-412c-b4bb-7ef3058da98d",
+//        userName: "kscott",
+//        email: "scott@odetocode.com",
+//        firstname: "K. Scott",
+//        lastname: "Galloway",
+//        bio: "Dance Instructor",
+//        twitter: "jongalloway",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2001-01-01T00:00:00"
+//    },
+//    {
+//        id: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//        userName: "johnnycamby@gmail.com",
+//        email: "johnnycamby@gmail.com",
+//        firstname: "Johnny",
+//        lastname: "Camby",
+//        bio: "CTO of tecs247",
+//        twitter: "johnnycamby",
+//        notes: [4, 5, 6],
+//        logs: [5, 6, 7, 8],
+//        membership: [
+//            "8343a97e-b4d2-4233-bbf7-42a2551a647b|1"
+//        ],
+//        create_at: "2015-08-29T00:00:00"
+//    },
+//    {
+//        id: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//        userName: "admin",
+//        email: "admin@tecs247.com",
+//        firstname: "Johnny",
+//        lastname: "Camby",
+//        bio: null,
+//        twitter: null,
+//        notes: [1, 2, 3],
+//        logs: [1, 2, 3, 4],
+//        membership: [],
+//        create_at: "2015-08-28T13:43:04.18"
+//    },
+//    {
+//        id: "e4ba9f1a-0df2-426c-8879-7a694da74330",
+//        userName: "shanselman",
+//        email: "scott@hanselman.com",
+//        firstname: "Scott",
+//        lastname: "Hanselman",
+//        bio: "Community Lead at Microsoft",
+//        twitter: "shanselman",
+//        notes: [],
+//        logs: [],
+//        membership: [],
+//        create_at: "2001-01-01T00:00:00"
+//    }
+//];
+//var roleFixtures = [
+//    {
+//        id: "1",
+//        name: "Administrator",
+//        membership: ["8343a97e-b4d2-4233-bbf7-42a2551a647b|1"]
+//    }
+//];
+
+
+//var logFixtures = [
+//{
+//    id: 5,
+//    entry: "Logged In",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2015-01-04T00:00:00"
+//},
+//{
+//    id: 6,
+//    entry: "Logged Out",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2015-12-17T00:00:00"
+//},
+//{
+//    id: 7,
+//    entry: "Logged In with Google",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2015-04-08T00:00:00"
+//},
+//{
+//    id: 8,
+//    entry: "Logged In Twitter",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2015-03-02T00:00:00"
+//},
+//{
+//    id: 1,
+//    entry: "Logged In",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2015-01-04T00:00:00"
+//},
+//{
+//    id: 2,
+//    entry: "Logged Out",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2015-12-17T00:00:00"
+//},
+//{
+//    id: 3,
+//    entry: "Logged In with Google",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2015-04-08T00:00:00"
+//},
+//{
+//    id: 4,
+//    entry: "Logged In Twitter",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2015-03-02T00:00:00"
+//}
+//];
+
+//noteFixtures = [
+//{
+//    id: 4,
+//    note: "Set as Admin",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2015-12-01T00:00:00"
+//},
+//{
+//    id: 6,
+//    note: "Sent email regarding overpayment",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2014-02-12T00:00:00"
+//},
+//{
+//    id: 5,
+//    note: "Changed Avatar due to complaint",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a647b",
+//    created_at: "2013-09-18T00:00:00"
+//},
+//{
+//    id: 1,
+//    note: "Set as Admin",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2015-12-01T00:00:00"
+//},
+//{
+//    id: 3,
+//    note: "Sent email regarding overpayment",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2014-02-12T00:00:00"
+//},
+//{
+//    id: 2,
+//    note: "Changed Avatar due to complaint",
+//    user: "8343a97e-b4d2-4233-bbf7-42a2551a648b",
+//    created_at: "2013-09-18T00:00:00"
+//}
+//];
+
+
+
+//UserAdmin.User.FIXTURES = userFixtures;
+//UserAdmin.Role.FIXTURES = roleFixtures;
+//UserAdmin.Role.FIXTURES = logFixtures;
+//UserAdmin.Role.FIXTURES = noteFixtures;

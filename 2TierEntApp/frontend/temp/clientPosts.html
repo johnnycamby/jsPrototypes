@@ -1,0 +1,13 @@
+
+<div class="well">
+    <div class="message row" ng-repeat="post in vmc.posts">
+      <a ui-sref="post({id:post.id})">
+        <div class="col-sm-6">
+            {{post.message  }}
+        </div>
+        <div class="col-sm-4 createdAt pull-right">
+            {{post.scheduledfor | date:'medium'}}
+        </div>
+      </a>
+    </div>
+</div>

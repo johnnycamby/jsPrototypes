@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EmberJs App ::- </title>
+
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
+    <link rel="stylesheet" href="content/app.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <a class="navbar-brand" href="#">Xplicit EmberJs App ::-</a>
+            <div class="nav-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">App</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="github-app">
+    </div>
+
+    <script type="text/x-handlebars" data-template-name="application">
+        <div class="row">
+            <div class="col-md-12">
+                {{outlet}}
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+        <h1>Github Nameshub</h1>
+        <hr />
+        <p>This is a Github Explorer for all of our favorite developers</p>
+        <ul>
+            {{#each}}
+            <li> {{#link-to 'user' this.login}}{{name}}{{/link-to}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="user">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="well">
+                    <p class="text-center">
+                        {{#link-to 'user' this }}<img {{bind-attr src="avatar_url"}} style="width:140px" />{{/link-to}}
+                    </p>
+                    <h4>{{#link-to 'user' this}}{{name}}{{/link-to}}</h4>
+                    <p>
+                        {{company}}<br />
+                        {{location}}<br />
+                        {{email}}<br />
+                    </p>
+                    <hr />
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Followers:</td>
+                            <td>{{followers}}</td>
+                        </tr>
+                        <tr>
+                            <td>Repositories:</td>
+                            <td>{{public_repos}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gits:</td>
+                            <td>{{public_gists}}</td>
+                        </tr>
+                    </table>
+                    <p>
+                        {{#link-to 'index'}}Back{{/link-to}}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                {{outlet}}
+            </div>
+
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="user/index">
+        <h2>{{name}}'s Github</h2>
+        <hr />
+        <ul>
+            <li>{{#link-to 'repositories'}}Repositories{{/link-to}}</li>
+            <li><a href="#">News and Events</a></li>
+            <li><a href="#">Gists</a></li>
+        </ul>
+    </script>
+
+    <script type="text/x-handlebars" id="repositories">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Devs{{/link-to}}</li>
+            <li>{{#link-to 'user' user}}{{user.name}}{{/link-to}}</li>
+            <li class="active">Repositories</li>
+        </ol>
+
+        <table class="table table-striped">
+            {{#each}}
+            <tr>
+                <td><h4>{{#link-to 'repository' this.name}}{{name}}{{/link-to}}</h4></td>
+                <td>{{description}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+
+<script type="text/x-handlebars" id="repository">
+
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Devs{{/link-to}}</li>
+            <li>{{#link-to 'user' user}}{{user.name}}{{/link-to}}</li>
+            <li>{{#link-to 'repositories'}}Repositories{{/link-to}}</li>
+            <li class="active">{{name}}</li>
+        </ol>
+
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+        <ul>
+            <li>Language: {{language}}</li>
+            <li>Watchers: {{watchers}}</li>
+            <li>Open Issues: {{watchers}}</li>
+            <li>Clone: <b>{{clone_url}}</b></li>
+            <li>Web: <a {{bind-attr href=html_url}} target=_blank>{{html_url}}</a></li>
+        </ul>
+        <hr />
+
+        {{#unless forked}}
+        <ul class="list-inline">
+            <li>{{#link-to 'issues'}}Issues{{/link-to}}</li>
+            <li>{{#link-to 'forks'}}Forks{{/link-to}}</li>
+            <li>{{#link-to 'commits'}}Commits{{/link-to}}</li>
+            <li>{{#link-to 'repository.newissue'}}New Issue{{/link-to}}</li>
+        </ul>
+        {{else}}
+        <p class="text-muted">
+            Forked {{fromDate created_at}}
+        </p>
+        {{/unless}}
+        {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="issues">
+        <h1>Issues</h1>
+        <table class="table table-striped">
+            {{#each}}
+            <tr>
+                <td><img {{bind-attr src=user.avatar_url}} style="width:120px;" /></td>
+                <td>{{title}}</td>
+                <td>{{fromDate created_at}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td>
+                    <p class="text-muted">No issues yet!</p>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+
+    <script type="text/x-handlebars" id="forks">
+        <h1>Forks</h1>
+        <table class="table table-striped">
+            {{#each}}
+            <tr>
+                <td><img {{bind-attr src=owner.avatar_url}} style="width:120px;" /></td>
+                <td>{{full_name}}</td>
+                <td>{{fromDate created_at}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td>
+                    <p class="text-muted">No forks yet!</p>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+
+<script type="text/x-handlebars" id="commits">
+        <h1>Commits</h1>
+        <table class="table table-striped">
+            {{#each}}
+            <tr>
+                <td><img {{bind-attr src=author.avatar_url}} style="width:120px;" /></td>
+                <td>
+                    <h5>{{sha}}</h5>
+                    <p>{{commit.message}}</p>
+                </td>
+                <td><p class="text-muted">{{fromDate created_at}}</p></td>
+            </tr>
+            {{else}}
+            <tr>
+                <td>
+                    <p class="text-muted">No commits yet!</p>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+
+<script type="text/x-handlebars" id="repository/newissue">
+    <h3>Create an Issue</h3>
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <!--<input type="text" class="form-control" id="new-issue-title" placeholder="Issue Title">-->
+                    {{input value=issue.title class="form-control" placeholder="Issue Title"}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="body" class="col-sm-2 control-label">Body</label>
+                <div class="col-sm-10">
+                    <!--<textarea name="title" class="form-control" id="new-issue-body" placeholder="What's your issue?" rows="5"/>-->
+                    {{textarea value=issue.body class="form-control" placeholder="What is your issue?" rows=5}}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary btn-sm" {{action 'submitIssue'}}>Submit Issue</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</script>
+
+
+<script src="js/libs/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="js/libs/ember-template-compiler-1.12.0.js"></script>
+    <script src="js/libs/ember-1.12.0.debug.js"></script>
+    <script src="Scripts/moment.js"></script>
+    <script src="app/app.js"></script>
+
+
+</body>
+
+
+</html>

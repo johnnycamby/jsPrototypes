@@ -1,0 +1,11 @@
+{
+  "name": "ionicAngular",
+  "version": "0.0.0",
+  "description": "Mobile App with Ionic and AngularJS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johnny Camby",
+  "license": "ISC"
+}

@@ -1,0 +1,42 @@
+{
+  "data": {
+    "user": [
+      {
+        "id": 1,
+        "createdAt": "2015-03-09T08:02:30.961Z",
+        "updatedAt": "2015-03-09T08:02:30.961Z"
+      },
+      {
+        "id": 2,
+        "createdAt": "2015-03-09T08:02:45.394Z",
+        "updatedAt": "2015-03-09T08:02:45.394Z"
+      },
+      {
+        "id": 3,
+        "createdAt": "2015-03-09T08:04:35.338Z",
+        "updatedAt": "2015-03-09T08:04:35.338Z"
+      }
+    ]
+  },
+  "schema": {
+    "user": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 3
+    }
+  }
+}

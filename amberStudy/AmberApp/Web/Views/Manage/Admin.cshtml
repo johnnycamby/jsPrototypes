@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.Title = "Account Administrator";
+}
+
+
+<div class="container" id="user-admin-app"></div>
+
+<script type="text/x-handlebars">
+    {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="index">
+    <h1>User Administrator</h1>
+    <hr />
+    <p>
+        Select what you want to do from below...
+    </p>
+
+    <ul>
+        <li>{{#link-to 'users'}}User List{{/link-to}}</li>
+        <li><a href="#">Roles</a></li>
+        <li><a href="#">Logs</a></li>
+    </ul>
+</script>
+
+<script type="text/x-handlebars" id="users">
+
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Find a User by Email or Last Name</h3>
+            <form class="form-inline" {{action "searchForUser" on="submit"}}>
+                {{input value=searchTerm class="form-control" placeholder="Search by email or last name"}}
+                <button class="btn btn-success">Go</button>
+            </form>
+        </div>
+        <hr />
+    </div>
+
+    <h1>{{title}}</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>User</th>
+            <th>Name</th>
+            <th>Member Since</th>
+        </tr>
+        {{#each}}
+        <tr>
+            <td>{{#link-to 'user' this.id}}{{gravatar-image email=email size=80}}{{/link-to}}</td>
+            <td>{{#link-to 'user' this.id}}{{firstname}} {{lastname}}{{/link-to}}</td>
+            <td>12 months ago</td>
+        </tr>
+        {{/each}}
+    </table>
+    @*{{outlet}}*@
+
+</script>
+
+<script type="text/x-handlebars" id="components/gravatar-image">
+    <img {{bind-attr src=gravatarUrl }} />
+</script>
+
+<script type="text/x-handlebars" id="breadcrumbs">
+    <ol class="breadcrumb">
+        <li>{{#link-to 'index'}}Admin{{/link-to}}</li>
+        <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+        <li>{{#link-to 'user.index'}}{{controllers.user.fullName}}{{/link-to}}</li>
+        <li class="active">{{view.pageTitle}}</li>
+    </ol>
+</script>
+
+<script type="text/x-handlebars" id="user">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <p class="text-center">
+                    {{gravatar-image email=email size=140}}
+                </p>
+                <h4>{{fullName}}</h4>
+                <hr />
+                <table class="table table-striped">
+                    <tr>
+                        <td>Username:</td>
+                        <td>{{userName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Twitter:</td>
+                        <td>{{twitter}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bio:</td>
+                        <td>{{bio}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{email}}</td>
+                    </tr>
+                </table>
+                <p>
+                    {{#link-to 'users'}}Back{{/link-to}}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <!-- meaning we shall be nesting the route to display the outlet-->
+            {{outlet}}
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="user/index">
+    {{view 'UserAdmin.BreadCrumbView' pageTitle=""}}
+    <hr />
+    <h2>Choose what you want to do...</h2>
+    <ul>
+        <li>{{#link-to 'user.editinfo'}}Edit Basic Info{{/link-to}}</li>
+        <li>{{#link-to 'user.changepassword'}}Change Password{{/link-to}}</li>
+        <li>{{#link-to 'user.changeroles'}}Change User Roles{{/link-to}}</li>
+        <li>{{#link-to 'user.addnote'}}Add a Note{{/link-to}}</li>
+    </ul>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Notes</h4>
+            <table class="table table-striped table-hover">
+                {{#each note in controllers.user.notes}}
+                <tr>
+                    <td>{{ note.created_at}}</td>
+                    <td>{{note.note }}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td>
+                        <i>Nothing yet...</i>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h4>Logs</h4>
+            <table class="table table-striped table-hover table-condensed">
+                {{#each log in controllers.user.logs}}
+                <tr>
+                    <td>{{ log.created_at}}</td>
+                    <td>{{log.entry}}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td>
+                        <i>Nothing yet...</i>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </table>
+        </div>
+    </div>
+</script>
+
+<!-- this l'l use a route nested under a resource 'user'-->
+<script type="text/x-handlebars" id="user/editinfo">
+    {{view 'UserAdmin.BreadCrumbView' pageTitle="Basic Information!"}}
+
+   
+    <form class="form-horizontal" {{action "saveUser" on="submit"}}>
+
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.userName class="form-control"}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.email class="form-control"}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">Firstname</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.firstname class="form-control"}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">Lastname</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.lastname class="form-control"}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="twitter" class="col-sm-2 control-label">Twitter</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.twitter class="form-control"}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bio" class="col-sm-2 control-label">Bio</label>
+            <div class="col-sm-10">
+                {{input value=controllers.user.bio class="form-control"}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </form>
+
+</script>
+
+<script type="text/x-handlebars" id="roles">
+    <table class="table table-striped">
+        {{#each}}
+        <!--Uncaught Error: Assertion Failed: You must pass a block to the if helper-->
+            {{#if userIsAssigned}}
+        <tr >
+            
+            <td class="alert" alert-success>
+                <span class="glyphicon glyphicon-ok"></span> 
+            </td>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                <a href="#" class="btn btn-danger btn-sm" {{action 'removeRole'}}>Revoke!</a>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            <td>Not assigned</td>
+        </tr>
+        <!-- if doesn't match each -->
+        {{/if}}
+        {{/each}}
+    </table>
+</script>
+
+<script type="text/x-handlebars" id="user/changeroles">
+
+    {{view 'UserAdmin.BreadCrumbView' pageTitle="Change Role(s)!"}}
+    <h3>Roles</h3>
+    
+    {{render 'roles' roles}}
+
+</script>
+
+<script type="text/x-handlebars" id="user/changepassword">
+
+    {{view 'UserAdmin.BreadCrumbView' pageTitle="Change password!"}}
+       
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <label for="oldpassword" class="col-sm-2 control-label">Old Password</label>
+            <div class="col-sm-10">
+                <input class="form-control" data-val="true" data-val-required="Please enter your old password" id="oldpassword" name="oldpassword" placeholder="Old password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="newpassword" class="col-sm-2 control-label">New password</label>
+            <div class="col-sm-10">
+                <input class="form-control" data-val="true" data-val-required="Please enter your new password" id="newpassword" name="newpassword" placeholder="New password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm" class="col-sm-2 control-label">Confirm</label>
+            <div class="col-sm-10">
+                <input class="form-control" data-val="true" data-val-required="Please enter your confirm" id="confirm" name="confirm" placeholder="Confirm">
+            </div>
+        </div>
+
+    </form>
+</script>
+
+<script type="text/x-handlebars" id="user/addnote">
+
+    {{view 'UserAdmin.BreadCrumbView' pageTitle="Adding a note!"}}
+
+    <h3>Add a Note to {{controllers.user.firstname}}'s Account</h3>
+    <form {{action "saveNote" on="submit" }}>
+        <textarea id="new-note" class="form-control" rows="5" placeholder="Add a note...."></textarea>
+        <p>
+            <input type="submit" class="btn btn-success" value="Add Note" />
+        </p>
+
+    </form>
+
+    <hr />
+
+    <table class="table table-striped">
+        {{#each note in notes}}
+        <tr>
+            <td>{{ note.created_at}}</td>
+            <td>{{note.note}}</td>
+        </tr>
+        {{else}}
+        <tr>
+            <td><i>No  notes yet....</i></td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+
+
+</script>
+<!--
+
+    <script src="/js/libs/ember-1.12.0.debug.js"></script>
+    <script src="/js/libs/ember-template-compiler-1.12.0.js"></script>
+-->
+
+<script src="/js/libs/jquery-1.10.2.js"></script>
+<script src="/js/libs/handlebars-1.1.2.js"></script>
+<script src="/js/libs/ember-1.4.0.js"></script>
+<script src="/js/libs/ember-data.js"></script>
+<script src="/js/libs/md5.js"></script>
+<script src="~/js/libs/moment.js"></script>
+<script src="/js/app.js"></script>

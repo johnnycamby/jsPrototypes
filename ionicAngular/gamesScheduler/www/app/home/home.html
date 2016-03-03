@@ -1,0 +1,26 @@
+
+
+<ion-nav-bar title="Games Scheduler" class=" bar-dark">
+   <!--  <h1 class="title">Games Scheduler</h1> -->
+</ion-nav-bar>
+
+<!--
+<div class="bar bar-header bar-positive">
+    <h1 class="title">Games Scheduler</h1>
+    <div ui-view></div>
+</div>
+
+<div class=" bar-footer tabs tabs-icon-top">
+   <a class="tab-item"><i class="icon ion-home"></i>Leagues</a>
+   <a class="tab-item"><i class="icon ion-star"></i>Teams</a>
+</div>
+-->
+
+  <ion-tabs class="tabs-energized tabs-icon-top">
+    <ion-tab title="Leagues" icon="ion-home" ui-sref="home.leagues">
+        <ion-nav-view name="tab-leagues"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Teams" icon="ion-star" ui-sref="home.favTeams">
+        <ion-nav-view name="tab-favTeams"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>

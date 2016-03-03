@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EmberJs App ::- </title>
+
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
+    <link rel="stylesheet" href="content/app.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <a class="navbar-brand" href="#">Study EmberJs App ::-</a>
+            <div class="nav-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">App</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="studyEmber">
+    </div>
+
+    <script type="text/x-handlebars" id="application">
+        <div class="row">
+            <div class="col-md-12">
+
+                <nav>
+                    {{#link-to 'about'}}About{{/link-to}}
+                    {{#link-to 'contact'}}Contact{{/link-to}}
+                </nav>
+                {{outlet}}
+            </div>
+        </div>
+    </script>
+
+<script type="text/x-handlebars" id="friends">
+        <h2>My friends</h2>
+
+    <ul>
+        {{#each friend in model}}
+        <li>{{#link-to 'friends.about' friend}}{{friend.name}}{{/link-to}}</li>
+        {{/each}}
+
+    </ul>
+
+
+        {{outlet}}
+    </script>
+
+
+    <script type="text/x-handlebars" id="friends/issues">
+        <h3>issues</h3>
+    </script>
+
+    <!--<script type="text/x-handlebars" id="issues">
+            <h3>issues</h3>
+        </script>-->
+
+    <script type="text/x-handlebars" id="friends/about">
+        <p>Name: {{name}}</p>
+        <p>About: {{about}}</p>
+    </script>
+
+    <script type="text/x-handlebars" id="index">
+
+    </script>
+
+    <script type="text/x-handlebars" id="about">
+        <h1>About</h1>
+    </script>
+
+    <script type="text/x-handlebars" id="contact">
+        <h1>contact</h1>
+    </script>
+
+
+    <script src="js/libs/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="js/libs/ember-template-compiler-1.12.0.js"></script>
+    <script src="js/libs/ember-1.12.0.debug.js"></script>
+    <script src="app/study.js"></script>
+</body>
+</html>
