@@ -1,0 +1,36 @@
+﻿
+------------ Compression --------------
+https://github.com/expressjs/compression
+
+------------ glob ----------------------
+https://github.com/isaacs/node-glob
+
+------------ method-override -----------
+https://github.com/expressjs/method-override
+
+----------- morgan ----------------------
+https://github.com/expressjs/morgan
+
+---------- body-parser ------------------
+https://github.com/expressjs/body-parser
+
+--------- cookie-parser -----------------
+https://github.com/expressjs/cookie-parser
+
+-------- express-session ----------------
+https://github.com/expressjs/session
+
+------- passport ------------------------
+http://passportjs.org/
+
+------- helmet --------------------------
+https://github.com/helmetjs/helmet
+
+------- consolidate --------------------- 
+https://www.npmjs.com/package/consolidate
+
+------ connect-flash --------------------
+https://www.npmjs.com/package/connect-flash
+
+----- connect-mongo ---------------------
+https://github.com/kcbanner/connect-mongo
