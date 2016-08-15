@@ -1,0 +1,16 @@
+{
+  "name": "NodeAngularTypeScript",
+  "version": "0.0.0",
+  "description": "NodeAngularTypeScript",
+  "main": "server.js",
+  "author": {
+    "name": "johnny",
+    "email": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "method-override": "^2.3.5"
+  }
+}

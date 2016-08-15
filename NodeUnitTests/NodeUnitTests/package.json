@@ -1,0 +1,14 @@
+{
+  "name": "NodeUnitTests",
+  "version": "0.0.0",
+  "description": "NodeUnitTests",
+  "main": "server.js",
+  "author": {
+    "name": "johnny",
+    "email": ""
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

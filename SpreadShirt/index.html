@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html ng-app="xapp" class="ng-cloak">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <link href="Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="Content/app.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">SpreadShirt Task Demo::-</a>
+                </div>
+            </div>
+        </div>
+               
+        <div class="searchform" ng-controller="designListCtrl as vm">
+
+            <h1 class="page-header">
+              <p>Search Keyword: {{vm.searchDesign}}</p>
+            </h1>
+
+            <div>
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="txtSearch" type="text" class="form-control" placeholder="Search by keyword" ng-model="vm.searchDesign">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Legal Status</td>                       
+                        <td>Voting</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr ng-repeat="design in (filteredDesigns = ( vm.designs | filter:vm.searchDesign))">-->
+                        <tr ng-repeat="design in  vm.designs | filter:vm.searchDesign">
+                        <td>{{design.name}}</td>
+                        <td>{{design.legalStatus}}</td>                        
+                        <td>
+                            <a href="" class="pull-right js-toggle-link" ng-click="vm.doVoting()">
+                                <i id="like" ng-class="{'fa fa-thumbs-up': !liked, 'fa fa-thumbs-down': liked}" ng-click="liked=!liked"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <ul class="list-group" ng-repeat="group in vm.getGroups()">
+                    <li class="list-group-item" ng-repeat="stat in vm.searchData | groupby:group">
+                        <h4>Group name: {{stat.searchValue}}</h4>
+                        <div>
+                            Total Number of Votes on all designs: <span class="badge">{{stat.totalVotes}}</span>
+                        </div>
+                        <div>
+                            Like(s): <span class="badge">{{stat.like}}</span> 
+                        </div>
+                        <div>
+                            Dislike(s): <span class="badge">{{stat.dislike}}</span> 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<!-- vendor-scripts -->
+<script src="scripts/jquery-1.9.1.min.js"></script>
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/xml2json.min.js"></script>
+<script src="scripts/lodash.min.js"></script>
+
+<!-- app-scripts -->
+<script src="app/app.js"></script>
+<script src="app/Utilities/ArrayExtensions.js"></script>
+<script src="app/Services/designService.js"></script>
+<script src="app/controllers/designListCtrl.js"></script>
+
+</html>

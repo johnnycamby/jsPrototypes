@@ -1,0 +1,20 @@
+{
+  "name": "HighChatApp",
+  "version": "0.0.0",
+  "description": "HighChat.js demo",
+  "main": "server.js",
+  "author": {
+    "name": "johnny",
+    "email": "johnnycamby@gmail.com"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "crypto": "0.0.3",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.6",
+    "mongoose": "^4.4.11",
+    "socket.io": "^1.4.5",
+    "stylus": "^0.54.2"
+  }
+}
