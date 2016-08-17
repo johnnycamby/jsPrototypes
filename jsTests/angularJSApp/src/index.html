@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html ng-app="mainApp">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Xplicit Movies::-</title>
+		<link rel="stylesheet" href="public/lib/bootstrap/dist/css/bootstrap.min.css">	
+	</head>
+	
+	<body>
+		<div class="header">
+			<div class="container-fluid">
+				<div class="page-header">
+					<h1><a href="#/">XplicitMovies::-</a></h1>
+					<p class="lead">Your Resource for Movie Data.</p>
+				</div>
+				
+				<div ng-controller="searchCtrl">
+					<form class="form-horizontal-lg" ng-submit="search()">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Movie title ..." ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" ng-click="search()">GO!</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			
+			<div ng-view=""></div>
+			
+		</div>
+		
+		<hr>
+		
+		<div class="footer">
+			<div class="container-fluid">
+				<p>from xplicit-johnnycamby | movie data from http://www.omdbapi.com</p>
+			</div>
+		</div>
+		
+		<script src="public/lib/angular/angular.min.js"></script>
+		<script src="public/lib/angular-route/angular-route.min.js"></script>
+		<script src="public/lib/angular-resource/angular-resource.min.js"></script>
+		<script src="public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		
+		
+				
+		<script src="movie-core/services/omdbService.js"></script>	
+		<script src="app.js"></script>	
+		<script src="movie-core/services/omdbApi.js"></script>
+	    <script src="movie-core/services/authService.js"></script> 
+	    <script src="movie-core/controllers/searchCtrl.js"></script>
+	    <script src="movie-core/controllers/resultsCtrl.js"></script>
+		<script src="movie-core/controllers/homeCtrl.js"></script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "JSTestsMochaSinonChai",
+  "version": "0.0.0",
+  "description": "JSTestsMochaSinonChai",
+  "main": "server.js",
+  "author": {
+    "name": "johnny",
+    "email": ""
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
+  }
+}
