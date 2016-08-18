@@ -1,0 +1,22 @@
+
+body{
+	padding:10px;
+	background-color: lightgray;
+}
+
+.ng-cloak {
+    display: none;
+}
+
+accordion .ng-enter{
+    animation: fadeIn 0.5s;
+}
+
+accordion .ng-leave{
+    animation: fadeOut 0.5s;
+}
+
+.img-rounded {    
+    width: 100px;
+    height: 60px;
+}

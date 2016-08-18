@@ -1,0 +1,63 @@
+
+[
+    {
+        "id":1,
+        "name":"Bugatti Chiron",
+        "rating":5,
+        "image":"./data/images/bugatti-chiron.jpg"
+    },
+    {
+        "id":2,
+        "name":"Bugatti Veyron 16.4 Super Sport ",
+        "rating":5,
+        "image":"./data/images/bugatti-veyron-ss.jpg"
+    },
+    {
+        "id":3,
+        "name":"CCR - Koenigsegg",
+        "rating":4,
+        "image":"./data/images/ccr.jpg"
+    },
+    {
+        "id":4,
+        "name":"Hennessey Venom GT",
+        "rating":4,
+        "image":"./data/images/hennessey-venom.jpg"
+    },
+    {
+        "id":5,
+        "name":"Laferrari",
+        "rating":4,
+        "image":"./data/images/laferrari.jpg"
+    },
+    {
+        "id":6,
+        "name":"mclaren F1",
+        "rating":3,
+        "image":"./data/images/mclaren-f1.jpg"
+    },
+    {
+        "id":7,
+        "name":"mclaren P1",
+        "rating":3,
+        "image":"./data/images/mclaren-p1.jpg"
+    },
+    {
+        "id":8,
+        "name":"Aston Martin One-77",
+        "rating":3,
+        "image":"./data/images/one-77.jpg"
+    },
+    {
+        "id":9,
+        "name":"Shelby SSC Aero TT",
+        "rating":4,
+        "image":"./data/images/sscaero.jpg"
+    },
+    {
+        "id":10,
+        "name":"Jaguar XJ220",
+        "rating":3,
+        "image":"./data/images/xj220.jpg"
+    }
+]

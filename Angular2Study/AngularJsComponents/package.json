@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-components",
+  "version": "1.0.0",
+  "description": "Building AngularJs Components",
+   "scripts": {
+    "start": "\"npm run lite\" ",
+    "lite": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "johnny camby",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "lite-server": "^2.2.2"
+  }
+}

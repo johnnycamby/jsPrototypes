@@ -1,0 +1,6 @@
+
+
+<span ng-repeat="entry in vm.entries track by $index" >
+    <!--<ng-transclude>*</ng-transclude>-->
+    <span ng-click="vm.setRating({value: $index + 1})"  class="glyphicon {{entry}}"></span>
+</span>
