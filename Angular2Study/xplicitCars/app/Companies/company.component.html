@@ -1,0 +1,29 @@
+
+
+<article class="template animated slideInRight">
+  <div *ngIf="company">
+    <h4> <img [src]="company.logo" id="detail-img" /> {{editCompany.name | uppercase}} </h4>
+
+    <div class="mdl-grid">
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+        <label class="mdl-textfield__label" for="nametext">Name</label>
+        <input type="text" id="nametext" class="mdl-textfield__input" [(ngModel)]="editCompany.name" />
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--8-col">
+        <label class="mdl-textfield__label" for="sidetext">Overview</label>
+        <!--<input type="text" id="sidetext" class="mdl-textfield__input" [(ngModel)]="editCompany.overview" />-->
+        <textarea type="text" id="sidetext" class="mdl-textfield__input" rows="6" [(ngModel)]="editCompany.overview"></textarea>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <button id="btn-save" class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      mdl-button--accent" (click)="save()">Save</button> &nbsp;
+      <button class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      " (click)="cancel()" [class.not-displayed]="isAddMode()">Cancel</button> &nbsp;
+      <button class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="delete()" [class.not-displayed]="isAddMode()">Delete</button>
+    </div>
+
+  </div>
+</article>

@@ -1,0 +1,18 @@
+
+
+
+<article class="template animated slideInRight">
+  <h4>Top Fastest Car Companies</h4>
+  <div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--3-col" *ngFor="#company of companies | async" (click)="gotoDetail(company)">
+
+        <button id="company-logo" class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <img [src]="company.logo"  id="co-img"  />
+          <!--{{company.name}}-->
+        </button>
+
+      </div>
+    </div>
+  </div>
+</article>
